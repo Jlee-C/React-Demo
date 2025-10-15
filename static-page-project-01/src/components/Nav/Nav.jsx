@@ -1,8 +1,10 @@
+import reactLogo from "../../assets/react.svg"
+
 function Navbar(){
     return (
         <>
             <header>
-                <img src="../../assets/react.svg" width={40} />
+                <img src={reactLogo} width={40} />
                 <span>React App</span>
             </header>
         </>
