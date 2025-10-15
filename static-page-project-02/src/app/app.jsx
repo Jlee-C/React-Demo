@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
+import MainPage from "@/app/pages/MainPage.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <h1>Hello, World!</h1>
+    <MainPage />
 );
