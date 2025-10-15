@@ -8,7 +8,7 @@ export default function Navbar(){
                 <nav>
                     <div className="logo">
                         <img src={reactLogo} alt="React logo"/>
-                        <span>React Facts</span>
+                        <span className="logo-text">ReactFacts</span>
                     </div>    
                 </nav>
             </header>

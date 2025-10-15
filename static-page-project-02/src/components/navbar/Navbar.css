@@ -1,8 +1,18 @@
 .header{
-    background-color: #333;
-    height: 10%;
+    background-color: #21222a;
+    padding: 2rem;
 }
 
 .logo{
-    color:aqua;
+    color:#61dbfb;
+    font-size: 2rem;
+    font-weight: bold;
+    display:flex;
+    padding-left: 1rem;
+    align-items: center;
+}
+
+.logo-text{
+    padding-left: 0.6rem;
+    font-family: sans-serif;
 }

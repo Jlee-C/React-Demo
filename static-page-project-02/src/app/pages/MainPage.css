@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #282d35;
+  color: white;
+}
+
+.main-container{
+ margin-left: 2rem;
+}
+
+.main-list-item{
+  margin: 1rem;
+  margin-left: 5rem;
+  font-size: 1.2rem;
+}
+
+.h1{
+  font-size: 3rem;
+  padding: 2rem;
+}
