@@ -1,0 +1,20 @@
+.banner {
+    background-color: #f55a5a;
+    color: white;
+    margin: 0 auto;
+    height: 3.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner img {
+    height: 55%;
+    margin-right: 0.4rem;
+}
+
+.banner span {
+    font-size: 1rem;
+    font-family: Inter;
+    font-weight: 400;
+}   
