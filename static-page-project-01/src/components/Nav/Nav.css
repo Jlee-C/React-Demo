@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(to bottom,transparent, #000000 20%, #000000 90%, transparent) 1;
+}
+
+.logo-container {
+    display: flex;
+    font-size: 2.2rem;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-right: 4rem;
+}
+.nav-list-item {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.react-logo {
+    width: 2rem;
+    padding: 0.5rem;
+}
