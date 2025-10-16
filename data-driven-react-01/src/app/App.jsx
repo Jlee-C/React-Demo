@@ -7,12 +7,16 @@ export default function App(){
 
   const entryElements = entryData.map((entry) =>
 
-    <Entry img={entry.img}
-    country={entry.country}
-    title={entry.title}
-    googleMapsLink={entry.googleMapsLink}
-    dates={entry.dates}
-    text={entry.text}
+    <Entry 
+    key={entry.id}
+    // In lou of manualy assigning every object field, if all entries match what you are assigning you can do so much mor concisely
+    props={entry}
+    //img={entry.img}
+    //country={entry.country}
+    //title={entry.title}
+    //googleMapsLink={entry.googleMapsLink}
+    //dates={entry.dates}
+    //text={entry.text}
     />
 
 )

@@ -1,8 +1,8 @@
 import marker from "@/assets/marker.png"
 import "./Entry.css"
 
-export default function Entry(props){
-
+export default function Entry({ props }){
+    console.log(props)
     return(
         <>
             <article className="journal-entry">
