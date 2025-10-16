@@ -4,7 +4,7 @@
 
 ---
 
-There are currently two projects I have finished:
+There are currently three projects I have finished:
 
 - static-page-project-01
 - static-page-project-02
