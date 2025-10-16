@@ -8,3 +8,4 @@ There are currently two projects I have finished:
 
 - static-page-project-01
 - static-page-project-02
+- data-driven-react-01
