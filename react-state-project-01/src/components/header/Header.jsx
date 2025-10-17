@@ -1,8 +1,11 @@
+import chefIcon from '@/assets/chef.svg'
+import './Header.css'
 
 function Header(){
 return(
-    <header>
-        <img src="@/assets/chef.svg" alt="A chef icon"/>
+    <header className='header-banner'>
+        <img className="chefIcon" src={chefIcon} alt="A chef icon"/>
+        <span className="title">Chef Claude</span>
     </header>
 )
 }
