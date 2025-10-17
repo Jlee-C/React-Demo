@@ -1,52 +1,52 @@
-import { useState } from "react"
-import "./Body.css"
+import { useState } from "react";
+import "./Body.css";
+import Recipe from "../recipe/Recipe";
+import IngredientsList from "../ingredientsList/IngredientsList";
 
+export default function Body() {
+  //
+  //Initialises array of ingredients
+  const [ingredients, setIngredients] = useState([]);
 
-export default function Body(){
+  //Initialises recipeShow state => false
+  const [recipeShown, setRecipeShown] = useState(false);
 
-    const [ingredients, setIngredients] = useState([])
+  //Adds user input into ingredients array (does not check to see if its an ingredient)
+  function addIngredient(formData) {
+    const newIngredient = formData.get("ingredient");
 
-    function addIngredient(formData){
-        const newIngredient = formData.get("ingredient")
-        
-        setIngredients((prevIngredients) => {
-            if (newIngredient === ""){
-                return prevIngredients
-            }
-            else{
-                return [...prevIngredients, newIngredient]
-            }
-    
-        })
-    }
+    setIngredients((prevIngredients) => {
+      if (newIngredient === "") {
+        return prevIngredients;
+      } else {
+        return [...prevIngredients, newIngredient];
+      }
+    });
+  }
 
-    const ingredientsListItems = ingredients.map(ingredient => (
-    <li key={ingredient}>{ingredient}</li>))
-    
-    return(
-        <main>
-            <form action={addIngredient} className="add-ingredient-form">
-                <input 
-                type="text"
-                placeholder="e.g. Oregano"
-                aria-label="Add ingredient"
-                name="ingredient"
-                />
-                <button>Add ingredient</button>
-            </form>
-            {(ingredients.length > 0) ?
-            <section>
-                <h2>Ingredients on hand:</h2>
-                <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
-                <div className="get-recipe-container">
-                    <div>
-                        <h3>Ready for a recipe?</h3>
-                        <p>Generate a recipe from your list of ingredients.</p>
-                    </div>
-                    <button>Get a recipe</button>
-                </div>
-            </section>
-            : null }
-        </main>
-    )
+  //Toggles whether the recipe suggestion is shown
+  function toggleRecipeShown() {
+    setRecipeShown((prevBool) => !prevBool);
+  }
+
+  return (
+    <main>
+      <form action={addIngredient} className="add-ingredient-form">
+        <input
+          type="text"
+          placeholder="e.g. Oregano"
+          aria-label="Add ingredient"
+          name="ingredient"
+        />
+        <button>Add ingredient</button>
+      </form>
+
+      {/** conditional rendering for ingredient dislay and recipe generator */}
+      <IngredientsList
+        ingredients={ingredients}
+        handleOnClick={toggleRecipeShown}
+      />
+      {recipeShown ? <Recipe /> : null}
+    </main>
+  );
 }
