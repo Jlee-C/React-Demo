@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Body.css";
 import Recipe from "../recipe/Recipe";
 import IngredientsList from "../ingredientsList/IngredientsList";
+import { getRecipeFromChefClaude } from "@/ai.js";
 
 export default function Body() {
   //
@@ -9,7 +10,9 @@ export default function Body() {
   const [ingredients, setIngredients] = useState([]);
 
   //Initialises recipeShow state => false
-  const [recipeShown, setRecipeShown] = useState(false);
+  // const [recipeShown, setRecipeShown] = useState(false);
+
+  const [recipeMarkdown, setRecipeMarkdown] = useState("");
 
   //Adds user input into ingredients array (does not check to see if its an ingredient)
   function addIngredient(formData) {
@@ -24,11 +27,17 @@ export default function Body() {
     });
   }
 
-  //Toggles whether the recipe suggestion is shown
-  function toggleRecipeShown() {
-    setRecipeShown((prevBool) => !prevBool);
+  async function getRecipe() {
+    console.log("Button Pressed!");
+    console.log("Awaiting Response");
+    const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+    setRecipeMarkdown(recipeMarkdown);
   }
 
+  // //Toggles whether the recipe suggestion is shown
+  // function toggleRecipe() {
+  //   setRecipeShown((prevBool) => !prevBool);
+  // }
   return (
     <main>
       <form action={addIngredient} className="add-ingredient-form">
@@ -42,11 +51,8 @@ export default function Body() {
       </form>
 
       {/** conditional rendering for ingredient dislay and recipe generator */}
-      <IngredientsList
-        ingredients={ingredients}
-        handleOnClick={toggleRecipeShown}
-      />
-      {recipeShown ? <Recipe /> : null}
+      <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+      <Recipe recipe={recipeMarkdown} />
     </main>
   );
 }
